@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import { ConnectWallet } from "./ConnectWallet";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { Folder, Search, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -74,7 +75,9 @@ export const Layout = ({ children }: LayoutProps) => {
                         </div>
                     </div>
                     <div className="flex items-center gap-4">
-                        <ConnectWallet />
+                        <ErrorBoundary>
+                            <ConnectWallet />
+                        </ErrorBoundary>
                     </div>
                 </header>
 
